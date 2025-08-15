@@ -1,0 +1,126 @@
+let z = 0;
+let move = true;
+let img;
+let sound;
+let font;
+
+function preload(){
+  img = loadImage('park-bench-1503483.jpg');
+  sound = loadSound('Musical, Toy, Music Box, Christmas, Jingle, Jingle Bells SND31198 1.wav');
+  font = loadFont('BaksoSapi.otf');
+}
+
+
+function setup() {
+  let cnv = createCanvas(600, 600);
+  cnv.mouseClicked(toggleSound);
+  amplitude = new p5.Amplitude();
+}
+
+
+function draw() {
+  background(150, 200, 255, 200);
+  
+  //background
+  image(img, 0, 0, 600, 600);
+  filter(POSTERIZE, 4);
+  
+  //bucket #1 and 2
+  drawBucket(350, 400, 100, 100);
+  
+  drawBucket(50, 400, 100, 100);
+  
+function drawBucket(x, y, bucketWidth, bucketHeight) {
+  stroke(0);
+  strokeWeight(2);
+  noFill();
+  circle(x + bucketWidth/2, y, bucketWidth - 5);
+  
+  stroke(255, 230, 235);
+  fill(255, 240, 240);
+  quad(x, y, x+bucketWidth, y, x+3*(bucketWidth/4), y+bucketHeight, x+ bucketWidth/4, y+bucketHeight);
+  
+  stroke(190, 190, 250);
+  strokeWeight(2);
+  fill(200,200,250);
+  ellipse(x + bucketWidth/2, y, bucketWidth, 20);
+  
+}
+  //smiley faces
+  
+  
+  function smile(s, d){
+    stroke(0);
+    strokeWeight(2);
+    fill(random(155, 255), random(155, 255), random(155, 255));
+    circle(s, d, 40);
+    
+    noStroke();
+    fill(0);
+    circle(s-6, d-4, 5);
+    
+    circle(s+6, d-4, 5);
+    
+    fill(0);
+    arc(s, d+4, 20, 20, 2*PI, PI, CHORD);
+    
+  }
+  
+  let level = amplitude.getLevel();
+  let size = map(level, 0, 1, 50, 100);
+  
+  
+  
+  smile(75, 390);
+  smile(115, 390);
+  smile(60, 395);
+  smile(130, 395);
+  smile(100, 400);
+  
+  if (move) {
+    smile(map(mouseX, 0, 600, 100, 400), map(mouseY, 0, 600, 350, 400));
+  } else {
+    smile(400, 400);
+    arc(400, 450, 25, 25, 2*PI, PI, CHORD);
+    fill(255, 255, 50, 200);
+    circle(100, 450, size)
+    
+    fill('white');
+    textFont(font);
+    textSize(size);
+    text('You filled a bucket!', 0, 60);
+    
+  }
+  noStroke();
+  //smiley 1
+  fill(0);
+  circle(90, 440, 5);
+    
+  circle(110, 440, 5);
+    
+  arc(100, 450, 25, 25, 2*PI, PI, CHORD);
+  
+  //smiley 2
+  fill(0);
+  circle(390, 440, 5);
+    
+  circle(410, 440, 5);
+    
+  arc(400, 455, 10, 10, PI, 2*PI, CHORD);
+  
+  
+}
+
+ function mousePressed() {
+    move = !move;
+  }
+
+function toggleSound(){
+  if (sound.isPlaying()) {
+    sound.stop();
+  } else {
+    sound.play();
+  }
+}
+
+
