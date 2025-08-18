@@ -37,7 +37,7 @@ function draw() {
   background(150, 200, 255, 200);
   
   //background
-  image(img, 0, 0, 600, 600);
+  image(img, 0, 0, Width, Width/2);
   filter(POSTERIZE, 4);
   
   //bucket #1 and 2
@@ -121,8 +121,6 @@ function drawBucket(x, y, bucketWidth, bucketHeight) {
     
   circle(410, 440, 5);
   arc(400, 455, 10, 10, PI, 2*PI, CHORD);
-  
-  
 }
 
  function mousePressed() {
