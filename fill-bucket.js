@@ -63,7 +63,6 @@ function drawBucket(x, y, bucketWidth, bucketHeight) {
 }
   //smiley faces
   
-  
   function smile(s, d){
     stroke(0);
     strokeWeight(2);
