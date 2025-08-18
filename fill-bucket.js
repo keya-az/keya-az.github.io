@@ -105,7 +105,6 @@ function drawBucket(x, y, bucketWidth, bucketHeight) {
   circle(390, 440, 5);
     
   circle(410, 440, 5);
-    
   arc(400, 455, 10, 10, PI, 2*PI, CHORD);
   
   
@@ -122,5 +121,3 @@ function toggleSound(){
     sound.play();
   }
 }
-
-
