@@ -1,3 +1,20 @@
+function windowResized() {
+  let Width = select('#sketch').width;
+  resizeCanvas(Width, Width / 2);
+  // Keep original aspect; if you prefer responsive, replace with resizeCanvas(windowWidth, windowHeight);
+  // Here we intentionally keep size stable for composition integrity.
+}
+
+function setup() {
+  let Width = select('#sketch').width;
+  let canvas = createCanvas(Width, Width / 2); 
+  canvas.style('display', 'block');
+  canvas.style('margin', '0 auto');
+  canvas.parent('#sketch');
+  noLoop();
+  pixelDensity(1);
+}
+
 let z = 0;
 let move = true;
 let img;
