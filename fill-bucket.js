@@ -67,7 +67,7 @@ function drawBucket(x, y, bucketWidth, bucketHeight) {
   }
   
   let level = amplitude.getLevel();
-  let size = map(level, 0, 1, 50, 100);
+  let z = map(level, 0, 1, 50, 100);
   
   
   
@@ -83,11 +83,11 @@ function drawBucket(x, y, bucketWidth, bucketHeight) {
     smile(400, 400);
     arc(400, 450, 25, 25, 2*PI, PI, CHORD);
     fill(255, 255, 50, 200);
-    circle(100, 450, size)
+    circle(100, 450, z)
     
     fill('white');
     textFont(font);
-    textSize(size);
+    textSize(z);
     text('You filled a bucket!', 0, 60);
     
   }
