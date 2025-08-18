@@ -1,3 +1,22 @@
+let z = 0;
+let move = true;
+let img;
+let sound;
+let font;
+
+function preload(){
+  img = loadImage('park-bench-1503483.jpg');
+  sound = loadSound('Musical, Toy, Music Box, Christmas, Jingle, Jingle Bells SND31198 1.wav');
+  font = loadFont('BaksoSapi.otf');
+}
+
+
+function setup() {
+  let cnv = createCanvas(600, 600);
+  cnv.mouseClicked(toggleSound);
+  amplitude = new p5.Amplitude();
+}
+//added
 function windowResized() {
   let Width = select('#fill-bucket').width;
   resizeCanvas(Width, Width / 2);
@@ -83,26 +102,7 @@ function windowResized() {
   resizeCanvas(windowWidth, 200);
   redraw();
 }
-
-let z = 0;
-let move = true;
-let img;
-let sound;
-let font;
-
-function preload(){
-  img = loadImage('park-bench-1503483.jpg');
-  sound = loadSound('Musical, Toy, Music Box, Christmas, Jingle, Jingle Bells SND31198 1.wav');
-  font = loadFont('BaksoSapi.otf');
-}
-
-
-function setup() {
-  let cnv = createCanvas(600, 600);
-  cnv.mouseClicked(toggleSound);
-  amplitude = new p5.Amplitude();
-}
-
+//added
 
 function draw() {
   background(150, 200, 255, 200);
