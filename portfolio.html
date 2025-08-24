@@ -1,32 +1,82 @@
 <html>
-
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
-    <script src="fill-bucket.js"></script>
-    <meta charset="utf-8">
-    <style>
-        body {
-            background-color: aliceblue;
-            font-family: 'Times New Roman', Times, serif;
-        }
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-color: aliceblue;
+                font-family: 'Times New Roman', Times, serif;
+            }
 
-        .mydiv {
-            padding: 10px;
-            margin: 10px;
-            border: solid;
-            border-radius: 10px;
-            border-width: 5px;
-            border-color: darkblue;
-        }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale-1">
-    <title>Keya Patel</title>
-    <meta name="description" content="Introducing artist Keya Patel">
-    <link rel="stylesheet" href="style.css">
-</head>
+            .mydiv {
+                padding: 10px;
+                margin: 10px;
+                border: solid;
+                border-radius: 10px;
+                border-width: 5px;
+                border-color: darkblue;
+            }
 
-<body>
-    <main>
+            :root {
+                --glass: rgba(10, 40, 100, .4)
+            }
+
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                backdrop-filter: blur(10px);
+                background: var(--glass);
+                border-bottom: 1px solid rgba(255, 255, 255, .1)
+            }
+
+            nav {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                max-width: 960px;
+                margin: 0 auto;
+                padding: .75rem 1rem
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                padding: .25rem .5rem;
+                border-radius: .25rem
+            }
+
+            a:focus {
+                outline: 2px solid #fff;
+                outline-offset: 2px
+            }
+
+            main {
+                max-width: 960px;
+                margin: 2rem auto;
+                padding: 0 1rem
+            }
+
+            section {
+                height: 60vh;
+                border: 1px dashed #333;
+                margin-bottom: 2rem;
+                padding: 1rem
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+        <title>Keya Patel</title>
+        <meta name="description" content="Introducing artist Keya Patel">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <a class="skip" href="#content" style="position:absolute;left:-999px;top:auto">Skip to content</a>
+        <header role="navigation" aria-label="Main">
+            <nav>
+                <a href="index.html">Home</a><a href="#">Podcast</a><a href="#">CV</a>
+            </nav>
+        </header>
         <video width="50%" length="50%" controls>
             <source src="Woodland-Haunt1.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -48,7 +98,7 @@
             in the midst of tragedy. This is enunciated by the twinkling chimes in the bridge which further enhance a
             magical, whimsical feeling in the middle of the song that one could associate with nostalgic memories.
         </p>
-       <div id="fill-bucket"></div>
+        <img src="Fill-Bucket1.png" width="50%" length="50%"></img>
         <div class="mydiv">
             <h1>How to Fill a Bucket</h1>
         </div>
@@ -65,10 +115,7 @@
             the color changing feature of the smiling icons which makes the smiling bucket appear rainbow like with its
             array of colors.
         </p>
-    </main>
-    <footer>
-        <p>©2025 Keya Patel </p>
-    </footer>
-</body>
-
+        </head>
+        </main>
+    </body>
 </html>
