@@ -1,19 +1,21 @@
 <html>
-<head>
+
+    <head>
         <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
         <meta charset="utf-8">
         <style>
             body {
-                background-color: aliceblue;
+                background-color: rgba(84, 123, 140, 0.399);
                 font-family: 'Times New Roman', Times, serif;
+                color: #fff;
             }
 
             .mydiv {
-                padding: 10px;
-                margin: 10px;
+                padding: 5px;
+                margin: 5px;
                 border: solid;
-                border-radius: 10px;
-                border-width: 5px;
+                border-radius: 3px;
+                border-width: 2px;
                 border-color: darkblue;
             }
 
@@ -63,6 +65,48 @@
                 margin-bottom: 2rem;
                 padding: 1rem
             }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 12px;
+                padding: 12px
+            }
+
+            .item {
+                background: #000;
+                border: 1px solid #222;
+                aspect-ratio: 4/3;
+                position: relative;
+                overflow: hidden
+            }
+
+            .caption {
+                position: absolute;
+                inset: 0;
+                display: grid;
+                place-items: center
+            }
+
+            .media {
+                position: absolute;
+                inset: 0;
+                transform: translateY(20%);
+                opacity: 0;
+                transition: transform 200ms ease, opacity 200ms ease
+            }
+
+            .item:focus-within .media,
+            .item:hover .media {
+                transform: translateY(0);
+                opacity: 1
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .media {
+                    transition: none
+                }
+            }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale-1">
         <title>Keya Patel</title>
@@ -77,6 +121,45 @@
                 <a href="index.html">Home</a><a href="#">Podcast</a><a href="#">CV</a>
             </nav>
         </header>
+
+        <div class="grid">
+            <div class="item" tabindex="0">
+                <div
+                    class="
+                Woodland Haunt, created on Ableton Live 12 Suite in the Summer of 2024, utilizes tracks created using audio
+                effects – such as compressor and EQ eight – MIDI effects, and instruments. With overlapping pre-made
+                ambience tracks, 3D enhancement, and sound effects like glass shattering, this song is an immersive
+                experience reminiscent of a magical journey through the woods. Woodland Haunt is fitting as background music
+                for any such plot and creates a suspenseful, yet light musical environment for listeners. The song begins
+                with a single track and grows in complexity as it reaches a peak bridge. At the bridge, all tracks fade away
+                before reappearing for the outro again, closing out one-by-one until a singular track is left. The
+                intermittent sound effects create a sense of an active environment with random objects intervening as one
+                journeys through the song. The initiating and closing sound of glass-shattering creates a sense of
+                foreboding as though this song is played in the middle of a tragic event, perhaps reminding one of a memory
+                in the midst of tragedy. This is enunciated by the twinkling chimes in the bridge which further enhance a
+                magical, whimsical feeling in the middle of the song that one could associate with nostalgic memories.">
+                    Woodland Haunt</div>
+                <video width="50%" length="50%" controls>
+                    <source class="video" src="Woodland-Haunt1.mp4" type="video/mp4" alt="Woodland Haunt">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="item" tabindex="0">
+                <div class="Inspired by the children’s book 'Have You Filled A Bucket Today?', this animation represents the act of
+              spreading joy by passing positivity from your bucket to someone else’s. As a child, this children’s book was
+              an impactful metaphor to being a light in people’s lives, even random passersby. It also served as a
+              reminder that we have the power to dip into other people’s buckets too, and so we should be careful with our
+              words and actions so we don’t leave others’ buckets empty. As in the season of giving, I created a winter
+              setting for the December holiday season with matching music to recreate the joyful holiday spirit. The
+              animation works by moving a smiling icon from one happy bucket to another sad bucket and when it is dropped
+              in, the animation begins to play the song and the sad bucket begins to smile. Additionally, the initial
+              bucket which is full of smiles also begins to glow when another bucket is filled. Other animations include
+              the color changing feature of the smiling icons which makes the smiling bucket appear rainbow like with its
+              array of colors.">How to Fill a Bucket</div>
+                <img class="media" src="Fill-Bucket1.png" alt="How to Fill a Bucket">
+            </div>
+        </div>
+
         <video width="50%" length="50%" controls>
             <source src="Woodland-Haunt1.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -118,4 +201,5 @@
         </head>
         </main>
     </body>
-</html>
+
+    </html>
