@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(600, 600);
+  cnv.parent("neverending-container");
 }
 
 let x = 0;
