@@ -1,3 +1,6 @@
+//sketch created on Aug 25, 2025
+//Using ChatGPT AI Prompts:...can you add a subtle wave animation in the background using p5.js; can you make it multiple small waves
+
 let yoffs = []; // store offsets for multiple waves
   let waveCount = 3; // number of waves
 
