@@ -5,7 +5,7 @@ function setup() {
 
 let x = 0;
 let y = 360;
-let z = -330;
+let p = -330;
 let l = 200;
 
 function draw() {
@@ -70,15 +70,15 @@ function draw() {
   j = random(200, 230)
   k = random(110, 600)
   fill(j+5, j, 0, 1000);
-  circle(300, z, k);
+  circle(300, p, k);
   
   fill(255, 255, 0);
-  circle(300, z, 100);
+  circle(300, p, 100);
   
-  z = z - 5
+  p = p - 5
   
-  if (z == -1250) {
-    z = 360
+  if (p == -1250) {
+    p = 360
   }
   
   //clouds//
