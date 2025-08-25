@@ -1,188 +1,209 @@
-<html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
-    <meta charset="utf-8" />
-    <style>
-      body {
-        background-color: black;
-        font-family: "Monaco", serif;
-        color: white;
-      }
+    <html>
 
-      .mydiv {
-        padding: 5px;
-        margin: 5px;
-        border: solid;
-        border-radius: 3px;
-        border-width: 2px;
-        border-color: darkblue;
-      }
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
+        <meta charset="utf-8" />
+        <style>
+            body {
+                background-color: black;
+                font-family: "Monaco", serif;
+                color: white;
+            }
 
-      :root {
-        --glass: rgba(84, 123, 140, 0.399);
-      }
+            :root {
+                --glass: rgba(84, 123, 140, 0.399);
+            }
 
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: blur(10px);
-        background: var(--glass);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                backdrop-filter: blur(10px);
+                background: var(--glass);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
-      nav {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0.75rem 1rem;
-      }
+            nav {
+                display: flex;
+                justify-content: space-around;
+                /* evenly space out tabs */
+                align-items: center;
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 1rem;
+                /* more breathing room */
+                font-size: 1.25rem;
+                /* enlarge text */
+            }
 
-      a {
-        color: #fff;
-        text-decoration: none;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
-      }
+            a {
+                color: #fff;
+                text-decoration: none;
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.25rem;
+                transition: color 0.3s ease;
+            }
 
-      a:focus {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
-      }
+            a:hover {
+                color: #87cefa;
+                /* light blue on hover */
+            }
 
-      main {
-        max-width: 960px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
+            a:focus {
+                outline: 2px solid #fff;
+                outline-offset: 2px;
+            }
 
-      section {
-        margin-bottom: 2rem;
-        padding: 1rem;
-      }
+            main {
+                max-width: 960px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
 
-      .grid {
-        display: grid;
-        gap: 2rem;
-        padding: 12px;
-      }
+            .grid {
+                display: grid;
+                gap: 2rem;
+                padding: 12px;
+            }
 
-      .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
+            .row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                align-items: center;
+            }
 
-      /* Alternating layout */
-      .row:nth-child(even) .item {
-        order: 2; /* media second */
-      }
-      .row:nth-child(even) .text {
-        order: 1; /* text first */
-      }
+            /* Alternating layout */
+            .row:nth-child(even) .item {
+                order: 2;
+                /* media second */
+            }
 
-      .row:nth-child(odd) .item {
-        order: 1; /* media first */
-      }
-      .row:nth-child(odd) .text {
-        order: 2; /* text second */
-      }
+            .row:nth-child(even) .text {
+                order: 1;
+                /* text first */
+            }
 
-      .item {
-        background: #000;
-        border: 1px solid #222;
-        border-radius: 8px;
-        overflow: hidden;
-      }
+            .row:nth-child(odd) .item {
+                order: 1;
+                /* media first */
+            }
 
-      img,
-      video {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 8px;
-      }
+            .row:nth-child(odd) .text {
+                order: 2;
+                /* text second */
+            }
 
-      .text {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 1rem;
-        border-radius: 8px;
-      }
+            .item {
+                background: #000;
+                border: 1px solid #222;
+                border-radius: 8px;
+                overflow: hidden;
+            }
 
-      @media (max-width: 700px) {
-        .row {
-          grid-template-columns: 1fr;
-        }
-        .row .item,
-        .row .text {
-          order: unset; /* stack normally */
-        }
-      }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keya Patel</title>
-    <meta name="description" content="Introducing artist Keya Patel" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+            /* Media grayscale → color on hover */
+            img,
+            video {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+                filter: grayscale(100%);
+                transition: filter 0.5s ease, transform 0.3s ease;
+            }
 
-  <body>
-    <a
-      class="skip"
-      href="#content"
-      style="position: absolute; left: -999px; top: auto"
-      >Skip to content</a
-    >
-    <header role="navigation" aria-label="Main">
-      <nav>
-        <a href="index.html">Home</a><a href="#">Podcast</a><a href="#">CV</a>
-      </nav>
-    </header>
-    <div class="wrap">
-      <div class="grid">
-        <section class="row">
-          <div class="item" tabindex="0">
-            <video controls>
-              <source
-                src="Woodland-Haunt1.mp4"
-                type="video/mp4"
-                alt="Woodland Haunt"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="text">
-            <h2>Woodland Haunt</h2>
-            <p>
-              Woodland Haunt, created on Ableton Live 12 Suite in the Summer of
-              2024, utilizes tracks created using audio effects – such as
-              compressor and EQ eight – MIDI effects, and instruments. With
-              overlapping pre-made ambience tracks, 3D enhancement, and sound
-              effects like glass shattering, this song is an immersive
-              experience reminiscent of a magical journey through the woods...
-            </p>
-          </div>
-        </section>
+            .item:hover img,
+            .item:hover video {
+                filter: grayscale(0%);
+                transform: scale(1.02);
+                /* slight zoom on hover */
+            }
 
-        <section class="row">
-          <div class="item" tabindex="0">
-            <img
-              src="Fill-Bucket1.png"
-              alt="How to Fill a Bucket"
-            />
-          </div>
-          <div class="text">
-            <h2>How to Fill a Bucket</h2>
-            <p>
-              Inspired by the children’s book "Have You Filled A Bucket Today?",
-              this animation represents the act of spreading joy by passing
-              positivity from your bucket to someone else’s...
-            </p>
-          </div>
-        </section>
-      </div>
-    </div>
-  </body>
-</html>
+            .text {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            @media (max-width: 700px) {
+                .row {
+                    grid-template-columns: 1fr;
+                }
+
+                .row .item,
+                .row .text {
+                    order: unset;
+                    /* stack normally */
+                }
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Keya Patel</title>
+        <meta name="description" content="Introducing artist Keya Patel" />
+    </head>
+
+    <body>
+        <a class="skip" href="#content" style="position: absolute; left: -999px; top: auto">Skip to content</a>
+        <header role="navigation" aria-label="Main">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#">Podcast</a>
+                <a href="#">CV</a>
+            </nav>
+        </header>
+        <div class="wrap">
+            <div class="grid">
+                <section class="row">
+                    <div class="item" tabindex="0">
+                        <video controls>
+                            <source src="Woodland-Haunt1.mp4" type="video/mp4" alt="Woodland Haunt" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="text">
+                        <h2>Woodland Haunt</h2>
+                        <p>
+                            Woodland Haunt, created on Ableton Live 12 Suite in the Summer of 2024, utilizes tracks
+                            created using audio effects – such as compressor and EQ eight – MIDI effects, and
+                            instruments. With overlapping pre-made ambience tracks, 3D enhancement, and sound effects
+                            like glass shattering, this song is an immersive experience reminiscent of a magical journey
+                            through the woods. Woodland Haunt is fitting as background music for any such plot and
+                            creates a suspenseful, yet light musical environment for listeners. The song begins with a
+                            single track and grows in complexity as it reaches a peak bridge. At the bridge, all tracks
+                            fade away before reappearing for the outro again, closing out one-by-one until a singular
+                            track is left. The intermittent sound effects create a sense of an active environment with
+                            random objects intervening as one journeys through the song. The initiating and closing
+                            sound of glass-shattering creates a sense of foreboding as though this song is played in the
+                            middle of a tragic event, perhaps reminding one of a memory in the midst of tragedy. This is
+                            enunciated by the twinkling chimes in the bridge which further enhance a magical, whimsical
+                            feeling in the middle of the song that one could associate with nostalgic memories.</p>
+                    </div>
+                </section>
+
+                <section class="row">
+                    <div class="item" tabindex="0">
+                        <img src="Fill-Bucket1.png" alt="How to Fill a Bucket" />
+                    </div>
+                    <div class="text">
+                        <h2>How to Fill a Bucket</h2>
+                        <p>
+                            Inspired by the children’s book Have You Filled A Bucket Today?, this animation represents
+                            the act of spreading joy by passing positivity from your bucket to someone else’s. As a
+                            child, this children’s book was an impactful metaphor to being a light in people’s lives,
+                            even random passersby. It also served as a reminder that we have the power to dip into other
+                            people’s buckets too, and so we should be careful with our words and actions so we don’t
+                            leave others’ buckets empty. As in the season of giving, I created a winter setting for the
+                            December holiday season with matching music to recreate the joyful holiday spirit. The
+                            animation works by moving a smiling icon from one happy bucket to another sad bucket and
+                            when it is dropped in, the animation begins to play the song and the sad bucket begins to
+                            smile. Additionally, the initial bucket which is full of smiles also begins to glow when
+                            another bucket is filled. Other animations include the color changing feature of the smiling
+                            icons which makes the smiling bucket appear rainbow like with its array of colors.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+
+    </html>
