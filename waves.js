@@ -30,9 +30,9 @@ let yoffs = []; // store offsets for multiple waves
 
     // Different shades of blue with transparency
     let colors = [
-      [100, 150, 200, 70],
-      [80, 120, 180, 60],
-      [60, 100, 160, 50]
+      [89, 127, 143, 70],
+      [80, 120, 137, 60],
+      [84, 123, 140, 50]
     ];
     fill(...colors[index % colors.length]);
 
