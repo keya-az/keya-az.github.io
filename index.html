@@ -44,9 +44,10 @@
             opacity: 1;
         }
 
+        /* Hero content */
         header .hero {
             position: relative;
-            padding: 2rem 1rem;
+            padding: 2rem 1rem 5rem 1rem; /* extra bottom padding */
             text-align: center;
             z-index: 1;
         }
@@ -70,13 +71,13 @@
             color: #fff;
             border-radius: 8px;
             position: relative;
-            z-index: 3; /* always above scroll arrow */
+            z-index: 2; /* always above scroll arrow */
         }
 
         /* Scroll indicator - chevron bird */
         .scroll-bird {
             position: absolute;
-            bottom: 1rem; /* avoid overlapping button */
+            bottom: 0.5rem; /* lower to avoid blocking button */
             left: 50%;
             width: 24px;
             height: 24px;
@@ -89,7 +90,7 @@
             cursor: pointer;
             z-index: 2;
             box-shadow: 0 0 6px rgba(255,255,255,0.4);
-            animation-delay: 1s; /* delay fade-in */
+            animation-delay: 1s;
             animation-fill-mode: forwards;
         }
 
@@ -140,7 +141,7 @@
 
         /* Responsive scroll arrow position */
         @media (min-width: 768px) {
-            .scroll-bird { bottom: 2rem; }
+            .scroll-bird { bottom: 1rem; }
         }
 
         /* Smooth scroll */
@@ -174,7 +175,7 @@
             in Media Arts & Design and Applied Psychology at UC Santa Barbara. I have always been fascinated by the
             intersection of creativity and the human experience, which inspires much of my artistic work. As such, I
             enjoy drawing from themes in nature, everyday life, and South Asian traditions for my creations.</p>
-        <p>Over the years, I have explored a variety of media, including music, physical art, and media arts. My
+        <p>Over the years, I have explored a variety of mediums, including music, physical art, and media arts. My
             favorite visual designs often incorporate traditional henna patterns and florals. In music, I learned to
             play guitar, flute, and several other instruments, and I also experimented with DJ-ing. These musical
             pursuits have led me to compose original tracks in Ableton Live and enhance my media arts and
@@ -189,4 +190,3 @@
     </main>
 </body>
 </html>
-
