@@ -13,25 +13,10 @@ function preload(){
 
 function setup() {
   let cnv = createCanvas(600, 600);
+  cnv.parent("fill-bucket-container");
   cnv.mouseClicked(toggleSound);
   amplitude = new p5.Amplitude();
 }
-//added
-function windowResized() {
-  let Width = select('#fill-bucket').width;
-  resizeCanvas(Width, Width / 2);
-  // Keep original aspect; if you prefer responsive, replace with resizeCanvas(windowWidth, windowHeight);
-  // Here we intentionally keep size stable for composition integrity.
-}
-
-function setup() {
-  let Width = select('#fill-bucket').width;
-  let canvas = createCanvas(Width, Width / 2); 
-  canvas.style('display', 'block');
-  canvas.style('margin', '0 auto');
-  canvas.parent('#fill-bucket');
-}
-//added
 
 function draw() {
   background(150, 200, 255, 200);
