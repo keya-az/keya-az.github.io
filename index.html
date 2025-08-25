@@ -47,7 +47,6 @@
         /* Hero content */
         header .hero {
             position: relative;
-            padding: 2rem 1rem 5rem 1rem; /* extra bottom padding */
             text-align: center;
             z-index: 1;
         }
@@ -73,81 +72,6 @@
             position: relative;
             z-index: 2; /* always above scroll arrow */
         }
-
-        /* Scroll indicator - chevron bird */
-        .scroll-bird {
-            position: absolute;
-            bottom: 0.5rem; /* lower to avoid blocking button */
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            display: block;
-            transform: translateX(-50%) rotate(45deg);
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
-            animation: verticalBounce 1.5s infinite;
-            opacity: 0;
-            cursor: pointer;
-            z-index: 2;
-            box-shadow: 0 0 6px rgba(255,255,255,0.4);
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes verticalBounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); opacity: 1; }
-            40% { transform: translateX(-50%) translateY(-6px) rotate(45deg); }
-            60% { transform: translateX(-50%) translateY(-3px) rotate(45deg); }
-        }
-
-        main {
-            max-width: 72ch;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        main p {
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        /* Skip link */
-        .skip {
-            position: absolute;
-            left: -999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-
-        .skip:focus {
-            left: 1rem;
-            top: 1rem;
-            width: auto;
-            height: auto;
-            background: #000;
-            padding: .5rem;
-            outline: 2px solid #fff;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            header video { transition: none; }
-        }
-
-        /* Responsive scroll arrow position */
-        @media (min-width: 768px) {
-            .scroll-bird { bottom: 1rem; }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 
@@ -164,9 +88,7 @@
             <h1>Keya Patel</h1>
             <a class="cta" href="portfolio.html">Portfolio</a>
         </div>
-
-        <!-- Scroll indicator -->
-        <a href="#content" class="scroll-bird" aria-label="Scroll down"></a>
+        
     </header>
 
     <main id="content">
